@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "1.2.18",
+	"version": "1.2.19",
 	"description": "ctx-core queue",
 	"type": "module",
 	"main": "lib.js",
