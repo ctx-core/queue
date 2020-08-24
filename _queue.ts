@@ -1,18 +1,18 @@
 export function _queue(max=4) {
-	if (max === 0) max = 4
-	const a1__item = []
+	if (!max) max = 4
+	const item_a1 = []
 	let pending = 0
 	let closed = false
-	let fulfil__closed
+	let closed_fulfil
 	function dequeue() {
-		if (pending === 0 && a1__item.length === 0) {
-			if (fulfil__closed)
-				fulfil__closed()
+		if (!pending && !item_a1.length) {
+			if (closed_fulfil)
+				closed_fulfil()
 		}
 		if (pending >= max) return
-		if (a1__item.length === 0) return
+		if (!item_a1.length) return
 		pending += 1
-		const { fn, fulfil, reject } = a1__item.shift()
+		const { fn, fulfil, reject } = item_a1.shift()
 		const promise = fn()
 		try {
 			promise.then(fulfil, reject).then(() => {
@@ -32,17 +32,17 @@ export function _queue(max=4) {
 				throw new Error('Cannot add to a closed queue')
 			}
 			return new Promise((fulfil, reject) => {
-				a1__item.push({ fn, fulfil, reject })
+				item_a1.push({ fn, fulfil, reject })
 				dequeue()
 			})
 		},
 		close() {
 			closed = true
 			return new Promise(fulfil => {
-				if (pending === 0) {
-					fulfil()
+				if (pending) {
+					closed_fulfil = fulfil
 				} else {
-					fulfil__closed = fulfil
+					fulfil()
 				}
 			})
 		}
@@ -57,8 +57,8 @@ export function _queue(max=4) {
  * @link {@see https://www.matteoagosti.com/blog/2013/01/22/rate-limiting-function-calls-in-javascript/}
  */
 export function _rate_limit(max__ops, interval, allow__bursts = false) {
-	const max__rate = allow__bursts ? max__ops : max__ops / interval
-	let num__ops = 0
+	const max_rate = allow__bursts ? max__ops : max__ops / interval
+	let ops_num = 0
 	let start = new Date().getTime()
 	const queue = []
 	function rate_limit(fn) {
@@ -66,24 +66,24 @@ export function _rate_limit(max__ops, interval, allow__bursts = false) {
 		const now = new Date().getTime()
 		const elapsed = now - start
 		if (elapsed > interval) {
-			num__ops = 0
+			ops_num = 0
 			start = now
 		}
-		rate = num__ops / (allow__bursts ? 1 : elapsed)
+		rate = ops_num / (allow__bursts ? 1 : elapsed)
 		return new Promise(async (resolve, reject) => {
 			try {
-				if (rate < max__rate) {
-					if (queue.length === 0) {
-						num__ops += 1
-						resolve(await fn())
-					} else {
+				if (rate < max_rate) {
+					if (queue.length) {
 						if (fn) queue.push(async() => resolve(await fn()))
-						num__ops += 1
+						ops_num += 1
 						queue.shift()()
+					} else {
+						ops_num += 1
+						resolve(await fn())
 					}
 				} else {
 					if (fn) queue.push(async() => resolve(await fn()))
-					setTimeout(rate_limit, 1 / max__rate)
+					setTimeout(rate_limit, 1 / max_rate)
 				}
 			} catch (err) {
 				reject(err)
