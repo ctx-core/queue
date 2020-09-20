@@ -1,36 +1,35 @@
 {
-  "name": "@ctx-core/queue",
-  "version": "2.0.0",
-  "description": "ctx-core queue",
-  "keywords": [
-    "ctx-core",
-    "queue"
-  ],
-  "homepage": "https://github.com/ctx-core/queue#readme",
-  "bugs": {
-    "url": "https://github.com/ctx-core/queue/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ctx-core/queue/issues"
-  },
-  "license": "Apache-2.0",
-  "author": "Brian Takita",
-  "main": "lib.js",
-  "module": "lib.js",
-  "types": "lib.ts",
-  "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "rm -f tsconfig.tsbuildinfo",
-    "compile": "./node_modules/.bin/tsc -b",
-    "exec": "$@",
-    "prepublishOnly": "npm run compile"
-  },
-  "devDependencies": {
-    "typescript": "^4.0.3"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "gitHead": "6239bd9ad55d4440006068fff00857131719992b"
+	"name": "@ctx-core/queue",
+	"version": "2.0.0",
+	"description": "ctx-core queue",
+	"keywords": [
+		"ctx-core",
+		"queue"
+	],
+	"homepage": "https://github.com/ctx-core/queue#readme",
+	"bugs": {
+		"url": "https://github.com/ctx-core/queue/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ctx-core/queue/issues"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
+	"main": "lib.js",
+	"module": "lib.js",
+	"types": "lib.ts",
+	"scripts": {
+		"build": "npm run clean && npm run compile",
+		"clean": "rm -f tsconfig.tsbuildinfo",
+		"compile": "./node_modules/.bin/tsc -b",
+		"exec": "$@",
+		"prepublishOnly": "npm run compile"
+	},
+	"devDependencies": {
+		"typescript": "^4.0.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
