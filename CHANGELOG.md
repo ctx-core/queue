@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 2.0.5
+
+### Patch Changes
+
+- fix: typescript build
+
 ## 2.0.4
 
 ### Patch Changes

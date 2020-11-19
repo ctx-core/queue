@@ -42,7 +42,7 @@ export function _queue(max = 4) {
 				if (pending) {
 					closed_fulfil = fulfil
 				} else {
-					fulfil()
+					fulfil(null)
 				}
 			})
 		}
