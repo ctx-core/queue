@@ -89,7 +89,7 @@ export function _rate_limit(ops_max:number, interval:number, allow_bursts = fals
 	return rate_limit
 }
 export type rate_limit_fn_type = ()=>Promise<void>
-export type queue_item_type = {
+export interface queue_item_type {
 	fn
 	fulfil
 	reject

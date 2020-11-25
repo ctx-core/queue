@@ -8,8 +8,8 @@ export declare function _queue(max?: number): {
  */
 export declare function _rate_limit(ops_max: number, interval: number, allow_bursts?: boolean): (fn: any) => Promise<unknown>;
 export declare type rate_limit_fn_type = () => Promise<void>;
-export declare type queue_item_type = {
+export interface queue_item_type {
     fn: any;
     fulfil: any;
     reject: any;
-};
+}
