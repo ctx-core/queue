@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 2.1.2
+
+### Patch Changes
+
+- - .rush
+
 ## 2.1.1
 
 ### Patch Changes
