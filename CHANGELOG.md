@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.0.0
+
+### Major Changes
+
+- src directory
+
 ## 2.1.3
 
 ### Patch Changes
