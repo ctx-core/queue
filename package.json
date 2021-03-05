@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "3.0.4",
+	"version": "3.0.5",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -27,7 +27,7 @@
 		"prepublishOnly": "npm run compile"
 	},
 	"devDependencies": {
-		"typescript": "^4.2.2"
+		"typescript": "^4.2.3"
 	},
 	"publishConfig": {
 		"access": "public"
