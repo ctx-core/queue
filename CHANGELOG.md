@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.0.8
+
+### Patch Changes
+
+- version bump
+
 ## 3.0.7
 
 ### Patch Changes
