@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.0.10
+
+### Patch Changes
+
+- update dependencies
+
 ## 3.0.9
 
 ### Patch Changes
