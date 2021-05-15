@@ -7,7 +7,7 @@ export function _rate_limit(ops_max:number, interval:number, allow_bursts = fals
 	let ops_num = 0
 	let start = new Date().getTime()
 	const queue_a1 = [] as rate_limit_fn_type[]
-	function rate_limit(fn) {
+	function rate_limit(fn:()=>Promise<void>) {
 		let rate = 0
 		const now = new Date().getTime()
 		const elapsed = now - start

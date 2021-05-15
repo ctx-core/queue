@@ -3,11 +3,11 @@ export function _queue(max = 4) {
 	const item_a1 = [] as queue_item_type[]
 	let pending = 0
 	let closed = false
-	let closed_fulfil
+	let closed_fulfil:(v:any)=>void
 	function dequeue() {
 		if (!pending && !item_a1.length) {
 			if (closed_fulfil)
-				closed_fulfil()
+				closed_fulfil(null)
 		}
 		if (pending >= max) return
 		if (!item_a1.length) return
@@ -27,7 +27,7 @@ export function _queue(max = 4) {
 		dequeue()
 	}
 	return {
-		add(fn) {
+		add<Out extends unknown = unknown>(fn:()=>Promise<Out>):Promise<Out> {
 			if (closed) {
 				throw new Error('Cannot add to a closed queue')
 			}
@@ -49,7 +49,7 @@ export function _queue(max = 4) {
 	}
 }
 export interface queue_item_type {
-	fn
-	fulfil
-	reject
+	fn:()=>Promise<any>
+	fulfil:(v:any)=>void
+	reject:(err:any)=>void
 }

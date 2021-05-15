@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.1.0
+
+### Minor Changes
+
+- "noImplicitAny": true
+
 ## 3.0.10
 
 ### Patch Changes

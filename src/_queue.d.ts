@@ -1,9 +1,9 @@
 export declare function _queue(max?: number): {
-    add(fn: any): Promise<unknown>;
+    add<Out extends unknown = unknown>(fn: () => Promise<Out>): Promise<Out>;
     close(): Promise<unknown>;
 };
 export interface queue_item_type {
-    fn: any;
-    fulfil: any;
-    reject: any;
+    fn: () => Promise<any>;
+    fulfil: (v: any) => void;
+    reject: (err: any) => void;
 }
