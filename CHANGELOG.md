@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.1.1
+
+### Patch Changes
+
+- fix: target: 2018: nodejs compatability
+
 ## 3.1.0
 
 ### Minor Changes
