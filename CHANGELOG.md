@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 3.2.0
+
+### Minor Changes
+
+- dist,types directory: addressing typescript build issues
+
 ## 3.1.3
 
 ### Patch Changes
