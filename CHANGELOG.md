@@ -1,5 +1,12 @@
 # @ctx-core/queue
 
+## 4.0.0
+
+### Major Changes
+
+- \$ suffix for stores
+- \_ suffix for factory functions
+
 ## 3.3.1
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-export function _queue(max = 4) {
+export function queue_(max = 4) {
 	if (!max) max = 4
 	const item_a1 = [] as queue_item_type[]
 	let pending = 0
@@ -52,4 +52,7 @@ export interface queue_item_type {
 	fn:()=>Promise<any>
 	fulfil:(v:any)=>void
 	reject:(err:any)=>void
+}
+export {
+	queue_ as _queue,
 }
