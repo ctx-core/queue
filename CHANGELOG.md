@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 4.0.1
+
+### Patch Changes
+
+- fix: build: clean up old build files in dist
+
 ## 4.0.0
 
 ### Major Changes
