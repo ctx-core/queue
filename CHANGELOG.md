@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 5.0.5
+
+### Patch Changes
+
+- "prepare": "npm run clean && npm run compile"
+
 ## 5.0.4
 
 ### Patch Changes
