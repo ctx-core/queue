@@ -1,31 +1,9 @@
 export function queue_(max = 4) {
 	if (!max) max = 4
-	const item_a:queue_item_type[] = []
+	const item_a:queue_item_T[] = []
 	let pending = 0
 	let closed = false
 	let closed_fulfil:(v:any)=>void
-	function dequeue() {
-		if (!pending && !item_a.length) {
-			if (closed_fulfil)
-				closed_fulfil(null)
-		}
-		if (pending >= max) return
-		if (!item_a.length) return
-		pending += 1
-		const { fn, fulfil, reject } = item_a.shift() as queue_item_type
-		const promise = fn()
-		try {
-			promise.then(fulfil, reject).then(()=>{
-				pending -= 1
-				dequeue()
-			})
-		} catch (err) {
-			reject(err)
-			pending -= 1
-			dequeue()
-		}
-		dequeue()
-	}
 	return {
 		add<Out extends unknown = unknown>(fn:()=>Promise<Out>):Promise<Out> {
 			if (closed) {
@@ -45,10 +23,32 @@ export function queue_(max = 4) {
 					fulfil(null)
 				}
 			})
+		},
+	}
+	function dequeue() {
+		if (!pending && !item_a.length) {
+			if (closed_fulfil)
+				closed_fulfil(null)
 		}
+		if (pending >= max) return
+		if (!item_a.length) return
+		pending += 1
+		const { fn, fulfil, reject } = item_a.shift() as queue_item_T
+		const promise = fn()
+		try {
+			promise.then(fulfil, reject).then(()=>{
+				pending -= 1
+				dequeue()
+			})
+		} catch (err) {
+			reject(err)
+			pending -= 1
+			dequeue()
+		}
+		dequeue()
 	}
 }
-export interface queue_item_type {
+export interface queue_item_T {
 	fn:()=>Promise<any>
 	fulfil:(v:any)=>void
 	reject:(err:any)=>void
