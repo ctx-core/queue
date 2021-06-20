@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 5.0.6
+
+### Patch Changes
+
+- fix: deploying \*.js files
+
 ## 5.0.5
 
 ### Patch Changes
