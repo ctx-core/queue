@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 5.0.8
+
+### Patch Changes
+
+- tsconfig.json: "lib": ["dom", "ESNext"]
+
 ## 5.0.7
 
 ### Patch Changes
