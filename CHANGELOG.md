@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.2
+
+### Patch Changes
+
+- fix: "type": "module"
+
 ## 6.0.1
 
 ### Patch Changes
