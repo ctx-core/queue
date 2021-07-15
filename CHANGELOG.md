@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.0
+
+### Major Changes
+
+- "type": "module": module npm type
+
 ## 5.0.10
 
 ### Patch Changes
