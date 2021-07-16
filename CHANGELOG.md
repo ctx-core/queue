@@ -1,5 +1,17 @@
 # @ctx-core/queue
 
+## 6.0.9
+
+### Patch Changes
+
+- fix: sourceMappingURL: "mapRoot": ""
+
+## 6.0.8
+
+### Patch Changes
+
+- tsconfig.json: "target": "es2019"
+
 ## 6.0.7
 
 ### Patch Changes
