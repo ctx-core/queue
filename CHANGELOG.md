@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.7
+
+### Patch Changes
+
+- fix: cjs: load as a Promise
+
 ## 6.0.6
 
 ### Patch Changes
