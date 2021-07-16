@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.6
+
+### Patch Changes
+
+- "main": "./dist/index.cjs"
+
 ## 6.0.5
 
 ### Patch Changes
