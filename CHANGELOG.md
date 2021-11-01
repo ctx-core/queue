@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.14
+
+### Patch Changes
+
+- typescript: ^4.4.3 -> ^4.4.4
+
 ## 6.0.13
 
 ### Patch Changes
