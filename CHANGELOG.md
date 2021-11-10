@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.0.15
+
+### Patch Changes
+
+- compile using swc
+
 ## 6.0.14
 
 ### Patch Changes
