@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.0
+
+### Minor Changes
+
+- - rate_limit\_\_T
+
 ## 6.0.16
 
 ### Patch Changes
