@@ -1,5 +1,12 @@
 # @ctx-core/queue
 
+## 6.1.1
+
+### Patch Changes
+
+- typescript: ^4.4.4 -> ^4.5.2
+- @swc/core: ^1.2.108 -> ^1.2.110
+
 ## 6.1.0
 
 ### Minor Changes
