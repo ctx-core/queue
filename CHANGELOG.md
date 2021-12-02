@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.4
+
+### Patch Changes
+
+- @swc/core: ^1.2.113 -> ^1.2.116
+
 ## 6.1.3
 
 ### Patch Changes
