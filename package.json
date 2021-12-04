@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "6.1.4",
+	"version": "6.1.5",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -36,7 +36,7 @@
 	},
 	"devDependencies": {
 		"@swc/cli": "^0.1.52",
-		"@swc/core": "^1.2.116",
+		"@swc/core": "^1.2.117",
 		"typescript": "next"
 	},
 	"publishConfig": {
