@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.7
+
+### Patch Changes
+
+- package.json: - "main": explicitly not support cjs
+
 ## 6.1.6
 
 ### Patch Changes
