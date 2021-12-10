@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.8
+
+### Patch Changes
+
+- package.json: - module
+
 ## 6.1.7
 
 ### Patch Changes
