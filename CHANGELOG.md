@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.11
+
+### Patch Changes
+
+- fix: tsconfig.json: "rootDir": "."
+
 ## 6.1.10
 
 ### Patch Changes
