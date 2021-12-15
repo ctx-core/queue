@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.10
+
+### Patch Changes
+
+- fix: package.json: exports
+
 ## 6.1.9
 
 ### Patch Changes
