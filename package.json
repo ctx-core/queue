@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "6.1.8",
+	"version": "6.1.9",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -40,5 +40,6 @@
 	"publishConfig": {
 		"access": "public",
 		"cache": "~/.npm"
-	}
+	},
+	"svelte": "./dist/index.js"
 }

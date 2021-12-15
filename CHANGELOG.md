@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.9
+
+### Patch Changes
+
+- package.json: svelte: ./dist/index.js
+
 ## 6.1.8
 
 ### Patch Changes
