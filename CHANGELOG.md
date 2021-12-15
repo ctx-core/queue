@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.12
+
+### Patch Changes
+
+- \*.d.ts export
+
 ## 6.1.11
 
 ### Patch Changes
