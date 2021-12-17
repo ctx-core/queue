@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.14
+
+### Patch Changes
+
+- package.json: "types": "./src/index.ts": better editing experience
+
 ## 6.1.13
 
 ### Patch Changes
