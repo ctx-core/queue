@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.15
+
+### Patch Changes
+
+- tsconfig.json: "target": "ES2021"
+
 ## 6.1.14
 
 ### Patch Changes
