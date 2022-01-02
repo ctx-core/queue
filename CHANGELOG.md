@@ -1,5 +1,12 @@
 # @ctx-core/queue
 
+## 6.1.17
+
+### Patch Changes
+
+- .js + .d.ts instead of .ts
+- .js + .d.ts instead of .ts
+
 ## 6.1.16
 
 ### Patch Changes

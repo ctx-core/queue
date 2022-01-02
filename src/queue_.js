@@ -1,39 +1,43 @@
-export function queue_(max = 4) {
+/** @type {import('queue_').queue_} */
+export const queue_ = (max = 4)=>{
 	if (!max) max = 4
-	const item_a:queue_item_T[] = []
+	const item_a = []
 	let pending = 0
 	let closed = false
-	let closed_fulfil:(v:any)=>void
+	let closed_fulfil
 	return {
-		add<Out extends unknown = unknown>(fn:()=>Promise<Out>):Promise<Out> {
+		add(fn) {
 			if (closed) {
 				throw new Error('Cannot add to a closed queue')
 			}
 			return new Promise((fulfil, reject)=>{
-				item_a.push({ fn, fulfil, reject })
+				item_a.push({
+					fn,
+					fulfil,
+					reject
+				})
 				dequeue()
 			})
 		},
 		close() {
 			closed = true
-			return new Promise(fulfil=>{
+			return new Promise((fulfil)=>{
 				if (pending) {
 					closed_fulfil = fulfil
 				} else {
 					fulfil(null)
 				}
 			})
-		},
+		}
 	}
 	function dequeue() {
 		if (!pending && !item_a.length) {
-			if (closed_fulfil)
-				closed_fulfil(null)
+			if (closed_fulfil) closed_fulfil(null)
 		}
 		if (pending >= max) return
 		if (!item_a.length) return
 		pending += 1
-		const { fn, fulfil, reject } = item_a.shift() as queue_item_T
+		const { fn, fulfil, reject } = item_a.shift()
 		const promise = fn()
 		try {
 			promise.then(fulfil, reject).then(()=>{
@@ -48,11 +52,4 @@ export function queue_(max = 4) {
 		dequeue()
 	}
 }
-export interface queue_item_T {
-	fn:()=>Promise<any>
-	fulfil:(v:any)=>void
-	reject:(err:any)=>void
-}
-export {
-	queue_ as _queue,
-}
+export { queue_ as _queue, }
