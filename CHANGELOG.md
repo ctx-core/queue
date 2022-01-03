@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.18
+
+### Patch Changes
+
+- version bump
+
 ## 6.1.17
 
 ### Patch Changes
