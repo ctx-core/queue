@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.19
+
+### Patch Changes
+
+- uvu: ^0.5.2 -> ^0.5.3
+
 ## 6.1.18
 
 ### Patch Changes
