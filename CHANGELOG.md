@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 6.1.20
+
+### Patch Changes
+
+- sideEffects = false
+
 ## 6.1.19
 
 ### Patch Changes
