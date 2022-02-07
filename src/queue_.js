@@ -1,4 +1,4 @@
-/** @type {import('queue_').queue_} */
+/** @type {import('queue_.d.ts').queue_} */
 export const queue_ = (max = 4)=>{
 	if (!max) max = 4
 	const item_a = []
