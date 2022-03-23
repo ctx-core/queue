@@ -3,8 +3,8 @@
  * @type {import('rate_limit_').rate_limit_}
  * @link {@see https://www.matteoagosti.com/blog/2013/01/22/rate-limiting-function-calls-in-javascript/}
  */
-export const rate_limit_ = (ops_max, interval, allow_bursts = false)=>{
-	const max_rate = allow_bursts ? ops_max : ops_max / interval
+export const rate_limit_ = (ops_max, interval_millis, allow_bursts = false)=>{
+	const max_rate = allow_bursts ? ops_max : ops_max / interval_millis
 	let ops_num = 0
 	let start = new Date().getTime()
 	const queue_a = []
@@ -12,7 +12,7 @@ export const rate_limit_ = (ops_max, interval, allow_bursts = false)=>{
 		let rate = 0
 		const now = new Date().getTime()
 		const elapsed = now - start
-		if (elapsed > interval) {
+		if (elapsed > interval_millis) {
 			ops_num = 0
 			start = now
 		}
