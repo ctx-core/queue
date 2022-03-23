@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.0.0
+
+### Major Changes
+
+- queue*: add<Out> instead of queue*<Out>
+
 ## 6.2.0
 
 ### Minor Changes
