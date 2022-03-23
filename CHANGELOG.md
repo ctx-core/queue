@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.1.0
+
+### Minor Changes
+
+- @ctx-core/queue: rate*limit*: feat: + <Out> generic
+
 ## 7.0.0
 
 ### Major Changes
