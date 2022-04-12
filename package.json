@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.1.0",
+	"version": "7.1.1",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -19,9 +19,7 @@
 	"type": "module",
 	"types": "./src/index.d.ts",
 	"exports": {
-		".": {
-			"import": "./src/index.js"
-		},
+		".": "./src/index.js",
 		"./package.json": "./package.json"
 	},
 	"scripts": {

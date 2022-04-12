@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.1.1
+
+### Patch Changes
+
+- package.json: exports: update
+
 ## 7.1.0
 
 ### Minor Changes
