@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.2.0
+
+### Minor Changes
+
+- feat: batch*queue*
+
 ## 7.1.1
 
 ### Patch Changes
