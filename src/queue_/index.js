@@ -29,6 +29,9 @@ export function queue_(queue_size = default_queue_size) {
 					resolve(null)
 				}
 			})
+		},
+		get pending() {
+			return pending
 		}
 	}
 	function dequeue() {
