@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.3.2
+
+### Patch Changes
+
+- tsx: ^3.8.2 -> ^3.9.0
+
 ## 7.3.1
 
 ### Patch Changes
