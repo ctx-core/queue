@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.3.4
+
+### Patch Changes
+
+- tsconfig.json: skipLibCheck: true
+
 ## 7.3.3
 
 ### Patch Changes
