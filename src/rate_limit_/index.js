@@ -1,9 +1,14 @@
 /**
  * Rate limit function factory.
- * @type {import('rate_limit_').rate_limit_}
+ * @param ops_max{number}
+ * @param interval_millis{number}
+ * @param allow_bursts{boolean}
+ * @returns {import('./index.d.ts').rate_limit__T}
  * @link {@see https://www.matteoagosti.com/blog/2013/01/22/rate-limiting-function-calls-in-javascript/}
  */
-export const rate_limit_ = (ops_max, interval_millis, allow_bursts = false)=>{
+export function rate_limit_(
+	ops_max, interval_millis, allow_bursts = false
+) {
 	const max_rate = allow_bursts ? ops_max : ops_max / interval_millis
 	let ops_num = 0
 	let start = new Date().getTime()

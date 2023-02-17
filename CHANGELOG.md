@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.4.0
+
+### Minor Changes
+
+- rate*limit: extract *.js & \_.d.ts into directories
+
 ## 7.3.4
 
 ### Patch Changes
