@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.5.0
+
+### Minor Changes
+
+- queue_T: + cancel()
+
 ## 7.4.0
 
 ### Minor Changes
