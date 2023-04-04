@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.5.1
+
+### Patch Changes
+
+- queue\_: cancel(): fix: resolve .close() promise
+
 ## 7.5.0
 
 ### Minor Changes

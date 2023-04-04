@@ -9,7 +9,7 @@ export function queue_(queue_size = default_queue_size) {
 	const item_a = []
 	let pending = 0
 	let closed = false
-	let closed_resolve
+	let close__resolve
 	let cancelled = false
 	return /** @type {queue_T} */{
 		add(fn) {
@@ -23,9 +23,9 @@ export function queue_(queue_size = default_queue_size) {
 		},
 		close() {
 			closed = true
-			return new Promise((resolve)=>{
+			return new Promise(resolve=>{
 				if (pending) {
-					closed_resolve = resolve
+					close__resolve = resolve
 				} else {
 					resolve(null)
 				}
@@ -34,6 +34,7 @@ export function queue_(queue_size = default_queue_size) {
 		cancel() {
 			closed = true
 			cancelled = true
+			if (close__resolve) close__resolve(null)
 			return pending
 		},
 		get pending() {
@@ -43,7 +44,7 @@ export function queue_(queue_size = default_queue_size) {
 	function dequeue() {
 		if (cancelled) return
 		if (!pending && !item_a.length) {
-			if (closed_resolve) closed_resolve(null)
+			if (close__resolve) close__resolve(null)
 		}
 		if (pending >= queue_size) return
 		if (!item_a.length) return
