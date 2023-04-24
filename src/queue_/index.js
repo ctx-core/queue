@@ -1,23 +1,29 @@
+import { start } from 'repl'
 const default_queue_size = 4
 /**
  * @param queue_size
  * @returns {queue_T}
  * @private
  */
-export function queue_(queue_size = default_queue_size) {
+export function queue_(
+	queue_size = default_queue_size
+) {
 	if (!queue_size) queue_size = default_queue_size
-	const item_a = []
+	const waiting_a = []
 	let pending = 0
 	let closed = false
 	let close__resolve
 	let cancelled = false
+	/** @type {Set<(item_count:number)=>void>} */
+	const throttle__subscriber_S = new Set()
 	return /** @type {queue_T} */{
 		add(fn) {
 			if (closed) {
 				throw new Error('Cannot add to a closed queue')
 			}
 			return new Promise((resolve, reject)=>{
-				item_a.push({ fn, resolve, reject })
+				waiting_a.push({ fn, resolve, reject })
+				throttle__notify()
 				dequeue()
 			})
 		},
@@ -27,7 +33,7 @@ export function queue_(queue_size = default_queue_size) {
 				if (pending) {
 					close__resolve = resolve
 				} else {
-					resolve(null)
+					resolve(performance.now - start_ms)
 				}
 			})
 		},
@@ -39,17 +45,45 @@ export function queue_(queue_size = default_queue_size) {
 		},
 		get pending() {
 			return pending
+		},
+		/**
+		 * @param {number|((item_count:number)=>boolean)}max_item_count_OR_throttle__continue_
+		 * @returns {Promise<number>}
+		 */
+		throttle(max_item_count_OR_throttle__continue_) {
+			const throttle__continue_ =
+				typeof max_item_count_OR_throttle__continue_ === 'function'
+				? max_item_count_OR_throttle__continue_
+				: item_count=>item_count <= max_item_count_OR_throttle__continue_
+			let resolve
+			const pending__wait__promise =
+				new Promise(res=>{
+					resolve = res
+				})
+			const throttle__subscriber =
+				item_count=>{
+					if (throttle__continue_(item_count)) {
+						throttle__subscriber_S.delete(throttle__subscriber)
+						resolve(item_count)
+					}
+				}
+			throttle__subscriber_S.add(throttle__subscriber)
+			throttle__subscriber(item_count_())
+			return pending__wait__promise
 		}
+	}
+	function item_count_() {
+		return pending + waiting_a.length
 	}
 	function dequeue() {
 		if (cancelled) return
-		if (!pending && !item_a.length) {
-			if (close__resolve) close__resolve(null)
-		}
 		if (pending >= queue_size) return
-		if (!item_a.length) return
+		if (!waiting_a.length) {
+			if (!pending && close__resolve) close__resolve(null)
+			return
+		}
 		pending++
-		const { fn, resolve, reject } = item_a.shift()
+		const { fn, resolve, reject } = waiting_a.shift()
 		const promise = fn()
 		try {
 			promise
@@ -59,15 +93,24 @@ export function queue_(queue_size = default_queue_size) {
 					if (!cancelled) return reject($rej)
 				})
 				.then(()=>{
-					if (!cancelled) pending--
+					if (!cancelled) pending__decrement()
 					dequeue()
 				})
 		} catch (err) {
 			reject(err)
-			pending--
+			pending__decrement()
 			dequeue()
 		}
 		dequeue()
+	}
+	function pending__decrement() {
+		pending--
+		throttle__notify()
+	}
+	function throttle__notify() {
+		const item_count = item_count_()
+		throttle__subscriber_S.forEach(throttle__subscriber=>
+			throttle__subscriber(item_count))
 	}
 }
 export { queue_ as _queue, }

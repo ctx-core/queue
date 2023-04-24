@@ -91,4 +91,56 @@ test('queue_(2).cancel|immediately stops queue discarding pending jobs|returns p
 	equal(pending, 2)
 	equal(close__promise__arg_aa, [[null]])
 })
+test('throttle|number', async ()=>{
+	const queue = queue_(2)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_(), promise_o_(), promise_o_()]
+	promise_o_a.map(pending_o=>queue.add(()=>pending_o.promise))
+	const pending__wait__arg_aa:any[][] = []
+	const throttle__then = (...arg_a:any[])=>{
+		pending__wait__arg_aa.push(arg_a)
+	}
+	queue.throttle(5)
+		.then(throttle__then)
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	queue.throttle(3)
+		.then(throttle__then)
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	promise_o_a[0].resolve(true)
+	await tick()
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	promise_o_a[1].resolve(true)
+	await tick()
+	await tick()
+	equal(pending__wait__arg_aa, [[5], [3]])
+})
+test('throttle|fn', async ()=>{
+	const queue = queue_(2)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_(), promise_o_(), promise_o_()]
+	promise_o_a.map(pending_o=>queue.add(()=>pending_o.promise))
+	const pending__wait__arg_aa:any[][] = []
+	const throttle__then = (...arg_a:any[])=>{
+		pending__wait__arg_aa.push(arg_a)
+	}
+	queue.throttle(item_count=>
+		item_count <= 5
+	).then(throttle__then)
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	queue.throttle(item_count=>
+		item_count <= 3
+	).then(throttle__then)
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	promise_o_a[0].resolve(true)
+	await tick()
+	await tick()
+	equal(pending__wait__arg_aa, [[5]])
+	promise_o_a[1].resolve(true)
+	await tick()
+	await tick()
+	equal(pending__wait__arg_aa, [[5], [3]])
+})
 test.run()

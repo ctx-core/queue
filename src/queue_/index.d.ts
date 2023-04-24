@@ -1,12 +1,21 @@
-export declare function queue_(queue_size?:number):queue_T
+export declare function queue_(
+	queue_size?:number
+):queue_T
+export { queue_ as _queue, }
 export interface queue_T {
 	add<Out>(fn:()=>Promise<Out>):Promise<Out>
 	close():Promise<unknown>
 	cancel():number
+	get pending():number
+	throttle(
+		max_item_count_OR_throttle__continue_:
+			number
+			|((item_count:number)=>boolean)
+	):Promise<number>
 }
-export interface queue_item_T {
+export interface queue_waiting_T {
 	fn:()=>Promise<any>
 	fulfil:(v:any)=>void
 	reject:(err:any)=>void
 }
-export { queue_ as _queue, }
+export type queue_item_T = queue_waiting_T
