@@ -143,4 +143,26 @@ test('throttle|fn', async ()=>{
 	await tick()
 	equal(pending__wait__arg_aa, [[5], [3]])
 })
+test('pending', async ()=>{
+	const queue = queue_(2)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_()]
+	equal(queue.pending, 0)
+	queue.add(()=>promise_o_a[0].promise).then()
+	equal(queue.pending, 1)
+	queue.add(()=>promise_o_a[1].promise).then()
+	equal(queue.pending, 2)
+	queue.add(()=>promise_o_a[2].promise).then()
+	equal(queue.pending, 2)
+})
+test('item_count', async ()=>{
+	const queue = queue_(2)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_()]
+	equal(queue.item_count, 0)
+	queue.add(()=>promise_o_a[0].promise).then()
+	equal(queue.item_count, 1)
+	queue.add(()=>promise_o_a[1].promise).then()
+	equal(queue.item_count, 2)
+	queue.add(()=>promise_o_a[2].promise).then()
+	equal(queue.item_count, 3)
+})
 test.run()

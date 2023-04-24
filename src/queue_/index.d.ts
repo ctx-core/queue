@@ -12,6 +12,7 @@ export interface queue_T {
 			number
 			|((item_count:number)=>boolean)
 	):Promise<number>
+	get item_count():number
 }
 export interface queue_waiting_T {
 	fn:()=>Promise<any>

@@ -1,11 +1,17 @@
 # @ctx-core/queue
 
+## 7.7.0
+
+### Minor Changes
+
+- - queue_T: get item_count():number
+
 ## 7.6.0
 
 ### Minor Changes
 
 - - queue_waiting_T: aliased by queue_item_T
-- - queue\_T: + throttle(max_item_count_OR_throttle\__continue\_: number |((item_count:number)=>boolean)):Promise<number>
+- - queue_T: + throttle(max_item_count_OR_throttle\_\_continue\_: number |((item_count:number)=>boolean)):Promise<number>
 
 ### Patch Changes
 
@@ -112,7 +118,7 @@
 
 ### Minor Changes
 
-- rate\_limit: extract *.js & \_.d.ts into directories
+- rate_limit: extract \*.js & \_.d.ts into directories
 
 ## 7.3.4
 
@@ -148,7 +154,7 @@
 
 ### Minor Changes
 
-- feat: batch\_queue\_
+- feat: batch_queue\_
 
 ## 7.1.1
 
@@ -160,7 +166,7 @@
 
 ### Minor Changes
 
-- @ctx-core/queue: rate\_limit\_: feat: + <Out> generic
+- @ctx-core/queue: rate_limit\_: feat: + <Out> generic
 
 ## 7.0.0
 
@@ -301,7 +307,7 @@
 
 ### Minor Changes
 
-- - rate_limit\__T
+- - rate_limit\_\_T
 
 ## 6.0.16
 

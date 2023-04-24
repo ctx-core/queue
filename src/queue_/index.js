@@ -46,6 +46,9 @@ export function queue_(
 		get pending() {
 			return pending
 		},
+		get item_count() {
+			return item_count_()
+		},
 		/**
 		 * @param {number|((item_count:number)=>boolean)}max_item_count_OR_throttle__continue_
 		 * @returns {Promise<number>}
