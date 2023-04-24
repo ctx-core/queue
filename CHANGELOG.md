@@ -1,5 +1,15 @@
 # @ctx-core/queue
 
+## 7.9.0
+
+### Minor Changes
+
+- queue\_,queue_T: close: return number of processed elements
+
+### Patch Changes
+
+- close: fix: error
+
 ## 7.8.0
 
 ### Minor Changes

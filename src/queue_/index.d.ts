@@ -5,7 +5,7 @@ export { queue_ as _queue, }
 export interface queue_T {
 	add<Out>(fn:()=>Promise<Out>):Promise<Out>
 	add_sync<Out>(fn:()=>Promise<Out>):number
-	close():Promise<unknown>
+	close():Promise<number>
 	cancel():number
 	get pending():number
 	throttle(

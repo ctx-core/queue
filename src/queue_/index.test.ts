@@ -21,6 +21,12 @@ test('queue_(1).add|queue length of 1 at a time', async ()=>{
 	promise_o_a[2].resolve('val2')
 	await tick()
 	equal(ret_a, ['val0', 'val1', 'val2'])
+	const close__promise__arg_aa:any[][] = []
+	queue.close()
+		.then((...arg_a)=>
+			close__promise__arg_aa.push(arg_a))
+	await tick()
+	equal(close__promise__arg_aa, [[3]])
 })
 test('queue_(2).add|queue length of 2 at a time', async ()=>{
 	const queue = queue_(2)
@@ -47,6 +53,12 @@ test('queue_(2).add|queue length of 2 at a time', async ()=>{
 	promise_o_a[1].resolve('val1')
 	await tick()
 	equal(ret_a, ['val0', 'val1', 'val2', 'val3'])
+	const close__promise__arg_aa:any[][] = []
+	queue.close()
+		.then((...arg_a)=>
+			close__promise__arg_aa.push(arg_a))
+	await tick()
+	equal(close__promise__arg_aa, [[4]])
 })
 test('queue_(1).add_sync|queue length of 1 at a time', async ()=>{
 	const queue = queue_(1)
@@ -58,13 +70,6 @@ test('queue_(1).add_sync|queue length of 1 at a time', async ()=>{
 	equal(ret_a, [1, 2, null])
 	ret_a[2] = queue.add_sync(()=>promise_o_a[2].promise)
 	equal(ret_a, [1, 2, 3])
-	promise_o_a[1].resolve('val1')
-	await tick()
-	promise_o_a[0].resolve('val0')
-	await tick()
-	await tick()
-	promise_o_a[2].resolve('val2')
-	await tick()
 })
 test('queue_(2).add_sync|queue length of 2 at a time', async ()=>{
 	const queue = queue_(2)
@@ -78,16 +83,6 @@ test('queue_(2).add_sync|queue length of 2 at a time', async ()=>{
 	equal(ret_a, [1, 2, 3, null])
 	ret_a[3] = queue.add_sync(()=>promise_o_a[3].promise)
 	equal(ret_a, [1, 2, 3, 4])
-	promise_o_a[2].resolve('val2')
-	await tick()
-	promise_o_a[3].resolve('val3')
-	await tick()
-	promise_o_a[0].resolve('val0')
-	await tick()
-	await tick()
-	await tick()
-	promise_o_a[1].resolve('val1')
-	await tick()
 })
 test('queue_(2).cancel|immediately stops queue discarding pending jobs|returns pending count', async ()=>{
 	const queue = queue_(2)
@@ -109,7 +104,7 @@ test('queue_(2).cancel|immediately stops queue discarding pending jobs|returns p
 	queue.add(()=>promise_o_a[1].promise).then(ret=>ret_a[1] = ret)
 	queue.add(()=>promise_o_a[2].promise).then(ret=>ret_a[2] = ret)
 	queue.add(()=>promise_o_a[3].promise).then(ret=>ret_a[3] = ret)
-	let close__promise__arg_aa:any[][] = []
+	const close__promise__arg_aa:any[][] = []
 	queue.close()
 		.then((...arg_a)=>
 			close__promise__arg_aa.push(arg_a))
@@ -130,7 +125,7 @@ test('queue_(2).cancel|immediately stops queue discarding pending jobs|returns p
 	await tick()
 	equal(ret_a, [null, null, null, null])
 	equal(pending, 2)
-	equal(close__promise__arg_aa, [[null]])
+	equal(close__promise__arg_aa, [[0]])
 })
 test('throttle|number', async ()=>{
 	const queue = queue_(2)

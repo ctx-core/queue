@@ -16,6 +16,7 @@ export function queue_(
 	let cancelled = false
 	/** @type {Set<(item_count:number)=>void>} */
 	const throttle__subscriber_S = new Set()
+	let processed__count = 0
 	return /** @type {queue_T} */{
 		add(fn) {
 			if (closed) {
@@ -42,14 +43,14 @@ export function queue_(
 				if (pending) {
 					close__resolve = resolve
 				} else {
-					resolve(performance.now - start_ms)
+					resolve(processed__count)
 				}
 			})
 		},
 		cancel() {
 			closed = true
 			cancelled = true
-			if (close__resolve) close__resolve(null)
+			if (close__resolve) close__resolve(processed__count)
 			return pending
 		},
 		get pending() {
@@ -91,7 +92,7 @@ export function queue_(
 		if (cancelled) return
 		if (pending >= queue_size) return
 		if (!waiting_a.length) {
-			if (!pending && close__resolve) close__resolve(null)
+			if (!pending && close__resolve) close__resolve(processed__count)
 			return
 		}
 		pending++
@@ -105,6 +106,7 @@ export function queue_(
 					if (!cancelled) return reject($rej)
 				})
 				.then(()=>{
+					processed__count++
 					if (!cancelled) pending__decrement()
 					dequeue()
 				})
