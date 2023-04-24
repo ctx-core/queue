@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.8.0
+
+### Minor Changes
+
+- queue,queue_T: + add_sync
+
 ## 7.7.1
 
 ### Patch Changes

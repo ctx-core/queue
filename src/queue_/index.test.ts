@@ -48,6 +48,47 @@ test('queue_(2).add|queue length of 2 at a time', async ()=>{
 	await tick()
 	equal(ret_a, ['val0', 'val1', 'val2', 'val3'])
 })
+test('queue_(1).add_sync|queue length of 1 at a time', async ()=>{
+	const queue = queue_(1)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_()]
+	const ret_a:any[] = [null, null, null]
+	ret_a[0] = queue.add_sync(()=>promise_o_a[0].promise)
+	equal(ret_a, [1, null, null])
+	ret_a[1] = queue.add_sync(()=>promise_o_a[1].promise)
+	equal(ret_a, [1, 2, null])
+	ret_a[2] = queue.add_sync(()=>promise_o_a[2].promise)
+	equal(ret_a, [1, 2, 3])
+	promise_o_a[1].resolve('val1')
+	await tick()
+	promise_o_a[0].resolve('val0')
+	await tick()
+	await tick()
+	promise_o_a[2].resolve('val2')
+	await tick()
+})
+test('queue_(2).add_sync|queue length of 2 at a time', async ()=>{
+	const queue = queue_(2)
+	const promise_o_a = [promise_o_(), promise_o_(), promise_o_(), promise_o_()]
+	const ret_a:any[] = [null, null, null, null]
+	ret_a[0] = queue.add_sync(()=>promise_o_a[0].promise)
+	equal(ret_a, [1, null, null, null])
+	ret_a[1] = queue.add_sync(()=>promise_o_a[1].promise)
+	equal(ret_a, [1, 2, null, null])
+	ret_a[2] = queue.add_sync(()=>promise_o_a[2].promise)
+	equal(ret_a, [1, 2, 3, null])
+	ret_a[3] = queue.add_sync(()=>promise_o_a[3].promise)
+	equal(ret_a, [1, 2, 3, 4])
+	promise_o_a[2].resolve('val2')
+	await tick()
+	promise_o_a[3].resolve('val3')
+	await tick()
+	promise_o_a[0].resolve('val0')
+	await tick()
+	await tick()
+	await tick()
+	promise_o_a[1].resolve('val1')
+	await tick()
+})
 test('queue_(2).cancel|immediately stops queue discarding pending jobs|returns pending count', async ()=>{
 	const queue = queue_(2)
 	let pending:number|undefined = undefined

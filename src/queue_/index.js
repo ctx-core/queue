@@ -1,4 +1,4 @@
-import { start } from 'repl'
+import { noop } from '@ctx-core/function'
 const default_queue_size = 4
 /**
  * @param queue_size
@@ -26,6 +26,15 @@ export function queue_(
 				throttle__notify()
 				dequeue()
 			})
+		},
+		add_sync(fn) {
+			if (closed) {
+				throw new Error('Cannot add to a closed queue')
+			}
+			waiting_a.push({ fn, resolve: noop, reject: noop })
+			throttle__notify()
+			dequeue()
+			return item_count_()
 		},
 		close() {
 			closed = true
