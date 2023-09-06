@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.9.2
+
+### Patch Changes
+
+- version bump
+
 ## 7.9.1
 
 ### Patch Changes
