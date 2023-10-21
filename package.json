@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.9.3",
+	"version": "7.9.4",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -32,7 +32,7 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"devDependencies": {
-		"@sinonjs/fake-timers": "^11.2.1",
+		"@sinonjs/fake-timers": "^11.2.2",
 		"@types/sinonjs__fake-timers": "^8.1.4",
 		"c8": "^8.0.1",
 		"check-dts": "^0.7.2",
