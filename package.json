@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.9.4",
+	"version": "7.9.5",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@sinonjs/fake-timers": "^11.2.2",
-		"@types/sinonjs__fake-timers": "^8.1.4",
+		"@types/sinonjs__fake-timers": "^8.1.5",
 		"c8": "^8.0.1",
 		"check-dts": "^0.7.2",
 		"tsx": "^3.14.0",

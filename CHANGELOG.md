@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.9.5
+
+### Patch Changes
+
+- @types/sinonjs\_\_fake-timers: ^8.1.4 -> ^8.1.5
+
 ## 7.9.4
 
 ### Patch Changes
