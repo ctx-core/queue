@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.9.5",
+	"version": "7.10.0",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -17,9 +17,12 @@
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
 	"type": "module",
-	"types": "./src/index.d.ts",
+	"files": [
+		"*.d.ts"
+	],
+	"types": "./index.d.ts",
 	"exports": {
-		".": "./src/index.js",
+		".": "./index.js",
 		"./package.json": "./package.json"
 	},
 	"scripts": {
@@ -31,9 +34,10 @@
 		"test-unit": "tsx node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
+	"dependencies": {
+		"ctx-core": "^2.1.0"
+	},
 	"devDependencies": {
-		"@sinonjs/fake-timers": "^11.2.2",
-		"@types/sinonjs__fake-timers": "^8.1.5",
 		"c8": "^8.0.1",
 		"check-dts": "^0.7.2",
 		"tsx": "^4.0.0",
@@ -44,6 +48,5 @@
 		"access": "public",
 		"cache": "~/.npm"
 	},
-	"svelte": "./src/index.js",
 	"sideEffects": false
 }
