@@ -1,5 +1,15 @@
 # @ctx-core/queue
 
+## 7.10.4
+
+### Patch Changes
+
+- package.json: files:
+
+      *.d.ts
+      *.js
+      *.json
+
 ## 7.10.3
 
 ### Patch Changes

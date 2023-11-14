@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.10.3",
+	"version": "7.10.4",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -18,7 +18,9 @@
 	"author": "Brian Takita",
 	"type": "module",
 	"files": [
-		"*.d.ts"
+		"*.d.ts",
+		"*.js",
+		"*.json"
 	],
 	"types": "./index.d.ts",
 	"exports": {
