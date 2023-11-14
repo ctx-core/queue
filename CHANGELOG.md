@@ -1,5 +1,13 @@
 # @ctx-core/queue
 
+## 7.10.2
+
+### Patch Changes
+
+- fix: missing tsconfig.json
+- Updated dependencies
+  - ctx-core@2.2.1
+
 ## 7.10.1
 
 ### Patch Changes
