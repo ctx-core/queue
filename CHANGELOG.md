@@ -1,5 +1,13 @@
 # @ctx-core/queue
 
+## 7.10.3
+
+### Patch Changes
+
+- package.json: files: + \*.js
+- Updated dependencies
+  - ctx-core@2.2.2
+
 ## 7.10.2
 
 ### Patch Changes
