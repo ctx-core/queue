@@ -1,5 +1,14 @@
 # @ctx-core/queue
 
+## 7.10.7
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@3.0.0
+
 ## 7.10.6
 
 ### Patch Changes
