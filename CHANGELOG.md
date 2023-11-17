@@ -1,5 +1,12 @@
 # @ctx-core/queue
 
+## 7.10.9
+
+### Patch Changes
+
+- ctx-core: ^3.1.0 -> ^3.2.0
+- tsx: ^4.1.2 -> ^4.1.3
+
 ## 7.10.8
 
 ### Patch Changes
