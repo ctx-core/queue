@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.10.13
+
+### Patch Changes
+
+- ctx-core: ^3.3.0 -> ^3.3.1
+
 ## 7.10.12
 
 ### Patch Changes
