@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.10.20
+
+### Patch Changes
+
+- ctx-core: ^4.1.0 -> ^4.1.1
+
 ## 7.10.19
 
 ### Patch Changes
