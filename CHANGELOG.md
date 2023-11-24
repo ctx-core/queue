@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.10.25
+
+### Patch Changes
+
+- tsx: ^4.3.0 -> ^4.4.0
+
 ## 7.10.24
 
 ### Patch Changes
