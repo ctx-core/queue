@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.10.32
+
+### Patch Changes
+
+- ctx-core: ^4.7.0 -> ^4.8.0
+
 ## 7.10.31
 
 ### Patch Changes
