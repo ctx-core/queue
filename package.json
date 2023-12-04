@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/queue",
-	"version": "7.10.35",
+	"version": "7.10.36",
 	"description": "ctx-core queue",
 	"keywords": [
 		"ctx-core",
@@ -37,7 +37,7 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
-		"ctx-core": "^4.9.0"
+		"ctx-core": "^4.9.1"
 	},
 	"devDependencies": {
 		"c8": "^8.0.1",
