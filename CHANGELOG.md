@@ -1,5 +1,12 @@
 # @ctx-core/queue
 
+## 7.10.53
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.0.0
+
 ## 7.10.52
 
 ### Patch Changes
