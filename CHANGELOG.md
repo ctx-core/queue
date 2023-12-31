@@ -1,5 +1,11 @@
 # @ctx-core/queue
 
+## 7.10.69
+
+### Patch Changes
+
+- ctx-core: ^5.8.0 -> ^5.9.0
+
 ## 7.10.68
 
 ### Patch Changes
