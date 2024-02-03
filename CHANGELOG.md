@@ -1,5 +1,16 @@
 # @ctx-core/queue
 
+## 7.10.126
+
+### Patch Changes
+
+- rate_limit: fix: ∋ clearTimeout
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.37.0
+
 ## 7.10.125
 
 ### Patch Changes
