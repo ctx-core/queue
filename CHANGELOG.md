@@ -1,5 +1,13 @@
 # @ctx-core/queue
 
+## 7.10.134
+
+### Patch Changes
+
+- queue\_: queue_waiting_T: unknown instead of any
+- Updated dependencies
+  - ctx-core@6.1.3
+
 ## 7.10.133
 
 ### Patch Changes
