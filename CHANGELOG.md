@@ -1,5 +1,13 @@
 # @ctx-core/queue
 
+## 7.10.156
+
+### Patch Changes
+
+- package.json: author: url,email
+- Updated dependencies
+  - ctx-core@6.6.1
+
 ## 7.10.155
 
 ### Patch Changes
